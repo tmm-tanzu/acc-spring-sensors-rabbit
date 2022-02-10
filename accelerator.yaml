@@ -1,0 +1,30 @@
+accelerator:
+  displayName: Spring Sensors Rabbit
+  description: ""
+  iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
+  tags:
+    - spring
+    - java
+    - sensors
+    - rabbit
+  options:
+  - name: gitRepo
+    label: Git Repo
+    display: true
+    defaultValue: ""
+  - name: workloadType
+    label: Workload Type
+    description: "Label value for supply chain"
+    display: true
+    defaultValue: "web"
+engine:
+  type: Chain
+  transformations:
+  - type: Include
+    patterns: ['config/workload.yaml']
+  - type: ReplaceText
+    substitutions:
+      - text: GITREPO
+        with: "#gitRepo"
+      - text: WORKLOADTYPE
+        with: workloadType
