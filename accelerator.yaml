@@ -19,6 +19,7 @@ accelerator:
     label: Git Repo
     display: true
     defaultValue: ""
+    description: "Git repository for application's souce code"
   - name: gitBranch
     label: Git Repository Branch
     display: true
@@ -39,9 +40,7 @@ accelerator:
     required: true
 engine:
   merge:
-    - include: [ "**" ]
-      exclude: [ "tap/workload.yaml", "demo/**", "src/main/resources/application.yaml", "catalog/*.yaml" ]
-    - include: [ "tap/workload.yaml" ]
+    - include: [ "config/workload.yaml" ]
       chain:
         - type: ReplaceText
           substitutions:
@@ -51,8 +50,6 @@ engine:
               with: "#gitBranch"
             - text: WORKLOADTYPE
               with: workloadType
-        - type: RewritePath
-          rewriteTo: "'config/' + #filename"
     - include: [ "src/main/resources/application.yaml" ]
       chain:
         - type: ReplaceText
@@ -65,9 +62,3 @@ engine:
           substitutions:
             - text: dev.local/spring-sensors-publisher
               with: "#publisherRepository"
-    - include: [ "catalog/*.yaml" ]
-      chain:
-      - type: ReplaceText
-        substitutions:
-        - text: spring-sensors
-          with: "#artifactId"
