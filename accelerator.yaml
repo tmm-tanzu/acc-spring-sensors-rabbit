@@ -1,6 +1,6 @@
 accelerator:
   displayName: Spring Sensors Rabbit with Tilt
-  description: ""
+  description: "Deploy a sensor with rabbit backend and Tilt configured"
   iconUrl: https://dashboard.snapcraft.io/site_media/appmedia/2018/11/indicator-sensors_r8EdpLP.png
   tags:
     - spring
