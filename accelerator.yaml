@@ -27,11 +27,16 @@ accelerator:
     inputType: text
     dataType: string
     defaultValue: "main"
-  - name: workloadType
-    label: Workload Type
-    description: "Label value for supply chain"
+  - name: prodWorkloadType
+    label: Production Workload Type
+    description: "Label value for production supply chain"
     display: true
     defaultValue: "web"
+  - name: devWorkloadType
+    label: Development Workload Type
+    description: "Label value for development supply chain"
+    display: true
+    defaultValue: "web-dev"
   - name: publisherRepository
     inputType: text
     label: Name of repository to use for the publisher container image
@@ -53,7 +58,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**" ]
-      exclude: [ "config/workload.yaml", "demo/**", "src/main/resources/application.yaml", "catalog/*.yaml" ]
+      exclude: [ "config/workload.yaml", "demo/**", "src/main/resources/application.yaml", "catalog/*.yaml", "Tiltfile" ]
     - include: [ "config/workload.yaml" ]
       chain:
         - type: ReplaceText
@@ -62,8 +67,14 @@ engine:
               with: "#gitRepo"
             - text: main
               with: "#gitBranch"
-            - text: WORKLOADTYPE
-              with: "#workloadType"
+            - text: PRODWORKLOADTYPE
+              with: "#prodWorkloadType"
+    - include: [ "Tilefile" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: DEVWORKLOADTYPE
+              with: "#devWorkloadType"
     - include: [ "src/main/resources/application.yaml" ]
       chain:
         - type: ReplaceText
@@ -84,4 +95,3 @@ engine:
               with: "#localPath"
             - text: SOURCEIMAGE
               with: "#sourceImage"
-      
