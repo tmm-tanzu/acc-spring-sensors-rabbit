@@ -9,34 +9,34 @@ accelerator:
     - rabbit
   options:
   - name: title
-      label: Title
-      display: true
-      description: Title text for the application
-      inputType: text
-      dataType: string
-      defaultValue: "Tanzu Sensor Database"
+    label: Title
+    display: true
+    description: Title text for the application
+    inputType: text
+    dataType: string
+    defaultValue: "Tanzu Sensor Database"
   - name: gitRepo
     label: Git Repo
     display: true
     defaultValue: ""
   - name: gitBranch
-      label: Git Repository Branch
-      display: true
-      description: Git Repository Branch of the application's source code
-      inputType: text
-      dataType: string
-      defaultValue: "main"
+    label: Git Repository Branch
+    display: true
+    description: Git Repository Branch of the application's source code
+    inputType: text
+    dataType: string
+    defaultValue: "main"
   - name: workloadType
     label: Workload Type
     description: "Label value for supply chain"
     display: true
     defaultValue: "web"
   - name: publisherRepository
-      inputType: text
-      label: Name of repository to use for the publisher container image
-      defaultValue: index.docker.io/springdeveloper/spring-sensors-publisher
-      description: The repository name to use for the publisher image built as part of this sample. Specify server/repository that match what was specified for registry.server and registry.repository for ootb-supply-chain-basic.
-      required: true
+    inputType: text
+    label: Name of repository to use for the publisher container image
+    defaultValue: index.docker.io/springdeveloper/spring-sensors-publisher
+    description: The repository name to use for the publisher image built as part of this sample. Specify server/repository that match what was specified for registry.server and registry.repository for ootb-supply-chain-basic.
+    required: true
 engine:
   merge:
     - include: [ "**" ]
