@@ -40,6 +40,8 @@ accelerator:
     required: true
 engine:
   merge:
+    - include: [ "**" ]
+      exclude: [ "config/workload.yaml", "demo/**", "src/main/resources/application.yaml", "catalog/*.yaml" ]
     - include: [ "config/workload.yaml" ]
       chain:
         - type: ReplaceText
