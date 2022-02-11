@@ -68,7 +68,7 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-             - text: Sensor Database
+             - text: Tanzu Sensor Database
                with: "#title"
     - include: [ "demo/publisher-deployment.yaml", "demo/publisher-image.yaml" ]
       chain:
