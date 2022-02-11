@@ -49,7 +49,7 @@ engine:
             - text: main
               with: "#gitBranch"
             - text: WORKLOADTYPE
-              with: workloadType
+              with: "#workloadType"
     - include: [ "src/main/resources/application.yaml" ]
       chain:
         - type: ReplaceText
