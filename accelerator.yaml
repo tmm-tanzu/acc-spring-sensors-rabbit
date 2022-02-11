@@ -69,7 +69,7 @@ engine:
               with: "#gitBranch"
             - text: WORKLOADTYPE
               with: "#prodWorkloadType"
-    - include: [ "Tilefile" ]
+    - include: [ "Tiltfile" ]
       chain:
         - type: ReplaceText
           substitutions:
