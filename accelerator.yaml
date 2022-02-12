@@ -18,7 +18,7 @@ accelerator:
   - name: gitRepo
     label: Git Repo
     display: true
-    defaultValue: ""
+    defaultValue: "https://github.com/tmm-tanzu/spring-sensors-rabbit"
     description: "Git repository for application's souce code"
   - name: gitBranch
     label: Git Repository Branch
@@ -46,13 +46,13 @@ accelerator:
   - name: localPath
     inputType: text
     label: Local Path
-    defaultValue:
+    defaultValue: "/Users/taaron/tap/code-repos/dev/spring-sensors-rabbit"
     description: Local directory used for source image 
     required: true
   - name: sourceImage
     inputType: text
     label: Source Image
-    defaultValue:
+    defaultValue: "gcr.io/taaron-1/spring-sensors-app-source"
     description: Source image used for local dev
     required: true
 engine:
