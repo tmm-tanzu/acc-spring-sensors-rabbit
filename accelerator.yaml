@@ -67,7 +67,7 @@ engine:
               with: "#gitRepo"
             - text: main
               with: "#gitBranch"
-            - text: WORKLOADTYPE
+            - text: PRODWORKLOADTYPE
               with: "#prodWorkloadType"
     - include: [ "Tiltfile" ]
       chain:
